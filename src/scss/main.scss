@@ -1,0 +1,545 @@
+/* 
+==============================================
+CONTENT:	Project Name Here
+AUTHOR:		Your Name Here
+==============================================
+
+TABLE OF CONTENTS:
+
+0. Reset
+1. Main Layout
+2. Content
+
+==============================================
+*/
+
+/* 0. Reset ================================= */
+
+/* 
+If you want to add partials, use Sass Modules via @use:
+@use 'variables';
+
+Usage: partial-name.variable/mixin/function-name:
+background: variables.$primary-color;
+*/
+
+@import 'reset';
+@import 'variables';
+@import 'mixins';
+
+/* 1. Main Layout ================================= */
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background: rgb(46, 48, 50);
+}
+
+/* 2. Content ================================= */
+
+.hide_small{
+	display: none;
+}
+
+header {
+	display: flex;
+	flex-direction: column;
+	position: absolute;
+	width: 100%;
+	height: fit-content;
+
+
+	.navButts{
+		display: flex;
+		width: 100%;
+		justify-content: space-between;
+
+		.cta{
+			background-color: $teal;
+			border: none;
+			color: $white-text;
+			text-transform: uppercase;
+			height: fit-content;
+			padding: .7rem 1rem;
+			font-family: $pFont;
+			font-size: 16px;
+		}
+		.cta:hover{
+			background: linear-gradient(-45deg, $teal, #2de7c5, $teal, #0a5043);
+			background-size: 400% 400%;
+			animation: gradient 15s ease infinite;
+			color: $white-text;
+			font-weight: 666;
+		}
+		.daBurger{
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			div{
+				background: #fff;
+				width: 30px;
+				height: 3px;
+				margin: 5px;
+				border-radius: 5px;
+			}
+
+			@include bp-L{
+				display: none;
+			}
+		}
+
+		@include bp-L{
+			justify-content: flex-end;
+
+		}
+
+	}
+
+	.burger__menu{
+		display: none;
+
+		@include bp-L{
+			display: block;
+
+			.burg__ul{
+				display: flex;
+				justify-content: space-between;
+				justify-self: right;
+				width: 500px;
+				margin-left: -20%;
+
+				li{
+					a{
+						color: $white-text;
+						text-decoration: none;
+						font-size: 1.3rem;
+						text-transform: uppercase;
+						font-weight: 700;
+						text-shadow: 0 0 1px linear-gradient(-45deg, $teal, #2de7c5, $teal, #0a5043), 0 0 1px linear-gradient(-45deg, $teal, #2de7c5, $teal, #0a5043), 0 0 1px linear-gradient(-45deg, $teal, #2de7c5, $teal, #0a5043), 0 0 1px linear-gradient(-45deg, $teal, #2de7c5, $teal, #0a5043);
+					}
+					a:hover{
+						background: linear-gradient(-45deg, $teal, #2de7c5, $teal, #0a5043);
+						background-size: 400% 400%;
+						animation: gradient 15s ease infinite;
+						-webkit-background-clip: text;
+						-webkit-text-fill-color: transparent;
+						
+					}
+					.active{
+						background: linear-gradient(-45deg, $teal, #2de7c5, $teal, #0a5043);
+						background-size: 400% 400%;
+						animation: gradient 15s ease infinite;
+						-webkit-background-clip: text;
+						-webkit-text-fill-color: transparent;
+					}
+				}
+			}
+		}
+	}
+}
+
+
+
+.landing{
+	height: 700px;
+	width: 100%;
+	background-image: url(/src/img/header_img.webp);
+	background-size: 220%;
+	background-position: -300px;
+	display: flex;
+
+	.headContainer{
+		width: 100%;
+		margin-top: 200px;
+		text-align: center;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		color: $white-text;
+		justify-content: center;
+		font-family: $pFont;
+		text-shadow: 0px 0px 1.8px #000, 0px 0px 1.8px #000, 0px 0px 1.8px #000, 0px 0px 1.8px #000;
+
+
+		h1{
+			font-family: $hFont;
+			font-size: 3rem;
+			transform: rotate(-10deg);
+			margin-bottom: 20px;
+			font-style: italic;
+			width: fit-content;
+		}
+		p{
+			font-size: 20px;
+			text-transform: uppercase;
+			font-weight: 900;
+			margin: 5px 0px;
+		}
+		span{
+			text-transform: capitalize;
+			font-size: 22px;
+			margin: 20px;
+		}
+
+
+	}
+	.follaUs{
+		position: fixed;
+		right: 0%;
+		top: 30%;
+	}
+
+	@include bp-L{
+		height: 100vh;
+		background-size: 120%;
+
+		.headContainer{
+			h1{
+				font-size: 80px;
+			}
+		}
+	}
+
+}
+
+.post1{
+	background-color: $yellow;
+	display: grid;
+	grid-template-columns: repeat(6, 1fr);
+	grid-template-rows: repeat(6, 1fr);
+	padding: 10px 5%;
+	width: 100%;
+	height: 100vh;
+
+	
+	.post1__bkgimg{
+		grid-area: 1 / 1 / 6 / 6;
+		border: 1em #fff solid;
+		width: 72vw;
+		height: 82vh;
+		box-shadow: 0px 0px .42rem rgba(0, 0, 0, 0.666), 0px 0px .42rem rgba(0, 0, 0, 0.666), 0px 0px .42rem rgba(0, 0, 0, 0.666), 0px 0px .42rem rgba(0, 0, 0, 0.666);
+	}
+		
+	.post__wave{
+		grid-area: 1 / 6 / 2 / 7;
+		width: 100%;
+		height: 100%;
+	}
+	.postcard1{
+		grid-area: 2 / 2 / 7 / 7;
+		background-color: #fff;
+		box-shadow: 0px 0px .42rem rgba(0, 0, 0, 0.42), 0px 0px .42rem rgba(0, 0, 0, 0.42), 0px 0px .42rem rgba(0, 0, 0, 0.42), 0px 0px .42rem rgba(0, 0, 0, 0.42);
+		padding: 2rem;
+		color: $teal;
+		
+		
+		.article{
+			text-align: center;
+			width: 100%;
+			height: 100%;
+			display: grid;
+			grid-template: 
+			".	head head head .	" 2fr
+			"para para para para para" 3.5fr
+			".	link link link .	" 1fr
+			/
+			20% 20% 20% 20% 20%;
+
+			h2{
+				font-family: $hFont;
+				font-size: 25px;
+				text-transform: capitalize;
+				transform: rotate(-10deg);
+				margin: 50px 0px;
+				grid-area: head;
+			}
+			p{
+				font-family: $pFont;
+				color: $teal;
+				font-size: 1.3rem;
+				font-weight: 400;
+				line-height: 1.3em;
+				letter-spacing: 1.3px;
+				grid-area: para;
+				
+			}
+
+			a{
+				grid-area: link;
+				color: $teal;
+				background: none;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				border: .13em $teal solid;
+				text-transform: capitalize;
+				text-decoration: none;
+				font-size: 1.3rem;
+				font-family: $pFont;
+				z-index: 4;
+			}
+			a:hover{
+				background: linear-gradient(-45deg, $teal, #2de7c5, $teal, #0a5043);
+				background-size: 400% 400%;
+				animation: gradient 15s ease infinite;
+				color: $white-text;
+				font-weight: 666;
+			}
+		}
+
+		@include bp-L{
+			padding: 2rem 4rem;
+		}
+	}
+
+	@include bp-L{
+		align-items: center;
+		justify-content: center;
+
+		.postBkgd{
+			grid-area: 1 / 1 / 7 / 6;
+		}
+		.postcard1{
+			grid-area: 3 / 2 / 3 / 7;
+		}
+	}
+}
+
+.gallery{
+	background-color: #fff;
+	width: 100%;
+	
+	.gallUl{
+		display: grid;
+		gap: 2em;
+		grid-template-columns: repeat(2, 1fr);
+		padding: 2em;
+
+		li{
+			grid-column: 1/3;
+			
+			img{
+				width: 100%;
+			}
+			img:hover{
+				box-shadow: 0px 0px 1.3rem rgba(15, 132, 111, .42), 0px 0px 1.3rem rgba(15, 132, 111, .42), 0px 0px 1.3rem rgba(15, 132, 111, .42), 0px 0px 1.3rem rgba(15, 132, 111, .42);
+				transition: box-shadow 420ms linear;
+			}
+		}
+
+		@include bp-M{
+			grid-template-columns: repeat(2, 1fr);
+			
+			li{
+				grid-column: unset;
+			}
+		}
+
+		@include bp-L{
+			grid-template-columns: repeat(4, 1fr);
+
+			li{
+				grid-column: auto;
+			}
+		}
+	}
+
+
+}
+
+.post2{
+	background-image: url(../../src/img/catering_img.webp);
+	background-size: cover;
+	display: grid;
+	height: fit-content;
+	grid-template-columns: repeat(7, 1fr);
+	grid-template-rows: repeat(7, 2fr);
+
+	.postcard2{
+		background: $white-text;
+		grid-area: 2 / 2 / 7 / 7;
+		display: grid;
+		grid-template-columns: repeat(5, 1fr);
+		grid-template-rows: repeat(6, 1fr);
+		padding: 40px;
+		color: $teal;
+		border-radius: 5px;
+		text-align: center;
+
+		h2{
+			grid-area: 1 / 1 / 2 / 6;
+			font-family: $hFont;
+			font-size: 2rem;
+			text-transform: capitalize;
+			justify-self: center;
+			align-self: center;
+			transform: rotate(-10deg);
+
+		}
+		p{
+			grid-area: 3 / 1 / 5 / 6;
+			font-family: $pFont;
+			font-size: 1.3rem;
+			line-height: 2em;
+		}
+		a{
+			grid-area: 6 / 2 / 6 / 5;
+			justify-self: center;
+			color: $teal;
+			background: none;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			border: .13em $teal solid;
+			text-transform: capitalize;
+			text-decoration: none;
+			font-size: 1.3rem;
+			font-family: $pFont;
+			padding: 2% 4%;
+		}
+
+		a:hover{
+			background: linear-gradient(-45deg, $teal, #2de7c5, $teal, #0a5043);
+			background-size: 400% 400%;
+			animation: gradient 15s ease infinite;
+			color: $white-text;
+			font-weight: 666;
+		}
+
+	}
+}
+
+.foot__container{
+	background: #ffdee9;
+	height: fit-content;
+
+	.foot__content{
+		background: $white-text;
+		width: 100%;
+		height: 300%;
+		color: $teal;
+		display: grid;
+		grid-template-rows: repeat(10, 10%);
+		grid-template-columns: repeat(4, 1fr);
+		padding: 20px;
+
+		.foot__images{
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			grid-template-rows: repeat(5, 1fr);
+			grid-area: 1 / 4 / 1 / 4;
+
+			
+			.foot__image{
+				width: 100px;
+				height: 100px;
+			}
+			.post-wave{
+				grid-area: 1 / 1 / 3 / 3;
+				justify-self: flex-end;
+				z-index: 1;
+			}
+			.flower-pic{
+				grid-area: 1 / 2 / 5 / 4;
+				justify-self: flex-start;
+			}
+		}
+
+		.hungry{
+			grid-area: 3 / 1 / 4 / 5;
+			display: grid;
+			grid-template-columns: repeat(5, 1fr);
+			grid-template-rows: repeat(4, 1fr);
+			justify-self: center;
+			text-align: center;
+
+			h2{
+				font-family: $hFont;
+				grid-area: 1 / 3 / 2 / 4;
+				margin-bottom: 20px;
+				text-transform: capitalize;
+				font-size: 2rem;
+				justify-self: center;
+				transform: rotate(-10deg);
+			}
+			p{
+				grid-area: 4 / 2 / 4 / 5;
+
+			}
+		}
+		.address{
+			grid-area: 5 / 1 / 5 / 5;
+			justify-self: center;
+			display: flex;
+			flex-direction: column;
+
+		}
+
+		.hours{
+			grid-area: 7 / 1 / 7 / 5;
+			justify-self: center;
+			display: flex;
+			flex-direction: column;
+		}
+		.contact{
+			grid-area: 9 / 1 / 9 / 5;
+			justify-self: center;
+			display: flex;
+			flex-direction: column;
+		}
+
+	}
+
+
+	.foot__content-text{
+		display: none;
+	}
+
+	@include bp-L{
+		padding: 6.66%;
+
+		.foot__content{
+			grid-template-columns: repeat(12, 1fr);
+			padding: 0%;
+
+			.foot__images{
+				grid-area: 1 / 11 / 1 / 12;
+			}
+			
+			.hungry{
+				grid-area: 3 / 4 / 5 / 10;
+			}
+
+			.address{
+				grid-area: 6 / 5 / 7 / 8;
+			}
+			.hours{
+				grid-area: 6 / 2 / 7 / 4;	
+			}
+			.contact{
+				grid-area: 6 / 9 / 7 / 13;
+			}
+
+		}
+		.foot__content-text{
+			display: block;
+			justify-self: center;
+		}
+	}
+}
+
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
